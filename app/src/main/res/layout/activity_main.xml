@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sora.hamster.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/center"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_direct"
+        android:layout_width="100px"
+        android:layout_height="100px"
+        android:layout_marginTop="400px"
+        app:layout_constraintTop_toBottomOf="@+id/center"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/forward"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_margin="80px"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintBottom_toTopOf="@+id/text_direct"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backward"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_margin="80px"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintTop_toBottomOf="@+id/text_direct"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rightward"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_margin="80px"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintLeft_toRightOf="@+id/text_direct"
+        app:layout_constraintBottom_toBottomOf="@+id/text_direct"
+        app:layout_constraintTop_toTopOf="@+id/text_direct"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/leftward"
+        android:layout_width="200px"
+        android:layout_height="200px"
+        android:layout_margin="80px"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintRight_toLeftOf="@+id/text_direct"
+        app:layout_constraintBottom_toBottomOf="@+id/text_direct"
+        app:layout_constraintTop_toTopOf="@+id/text_direct"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textemqxip"
+        android:text="EMQX IP:"
+        android:gravity="left|center_vertical"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_marginLeft="100px"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emqxip"
+        android:layout_width="600px"
+        android:layout_height="160px"
+        android:layout_marginLeft="40px"
+        app:layout_constraintLeft_toRightOf="@+id/textemqxip"
+        app:layout_constraintBottom_toBottomOf="@+id/textemqxip"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textemqxport"
+        android:text="EMQX PORT:"
+        android:gravity="left|center_vertical"
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:layout_marginTop="380px"
+        android:layout_marginLeft="100px"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emqxport"
+        android:layout_width="500px"
+        android:layout_height="160px"
+        android:layout_marginLeft="40px"
+        app:layout_constraintLeft_toRightOf="@+id/textemqxport"
+        app:layout_constraintBottom_toBottomOf="@+id/textemqxport"
+        />
+<!--    <include layout="@layout/sider_menu" />-->
+</androidx.constraintlayout.widget.ConstraintLayout>
