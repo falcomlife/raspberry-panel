@@ -8,6 +8,7 @@ import org.eclipse.paho.client.mqttv3.persist.MemoryPersistence;
 public class MqttConfig {
 
     private MqttClient sampleClient;
+    //private String emqxIp = "192.168.43.248";
     private String emqxIp = "172.16.178.13";
     private String emqxPort = "1883";
 

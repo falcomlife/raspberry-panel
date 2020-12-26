@@ -13,7 +13,6 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
 
 public class MqttMessageSendHandler {
 
@@ -37,38 +36,42 @@ public class MqttMessageSendHandler {
         fixedThreadPool.execute(new Runnable() {
             @Override
             public void run() {
-                taskSet.put(vInner.getId(), Boolean.TRUE);
-                while (taskSet.get(vInner.getId())) {
-                    try {
-                        Thread.sleep(100);
-                    } catch (InterruptedException e) {
-                        e.printStackTrace();
+                MqttClient client = null;
+                try {
+                    MqttMessage message = null;
+                    if (vInner.getId() == R.id.forward) {
+                        message = new MqttMessage("{\"action\": \"forward\"}".getBytes());
+                    } else if (vInner.getId() == R.id.backward) {
+                        message = new MqttMessage("{\"action\": \"backward\"}".getBytes());
+                    } else if (vInner.getId() == R.id.leftward) {
+                        message = new MqttMessage("{\"action\": \"left\"}".getBytes());
+                    } else if (vInner.getId() == R.id.rightward) {
+                        message = new MqttMessage("{\"action\": \"right\"}".getBytes());
+                    } else if (vInner.getId() == R.id.clockwise) {
+                        message = new MqttMessage("{\"action\": \"clockwise\"}".getBytes());
+                    } else if (vInner.getId() == R.id.anticlockwise) {
+                        message = new MqttMessage("{\"action\": \"anticlockwise\"}".getBytes());
                     }
-                    MqttClient client = null;
-                    try {
-                        MqttMessage message = null;
-                        if (vInner.getId() == R.id.forward) {
-                            message = new MqttMessage("{\"action\": \"forward\"}".getBytes());
-                        } else if (vInner.getId() == R.id.backward) {
-                            message = new MqttMessage("{\"action\": \"backward\"}".getBytes());
-                        } else if (vInner.getId() == R.id.leftward) {
-                            message = new MqttMessage("{\"action\": \"leftward\"}".getBytes());
-                        } else if (vInner.getId() == R.id.rightward) {
-                            message = new MqttMessage("{\"action\": \"rightward\"}".getBytes());
-                        }
-                        client = mqttConfig.getMqttClient();
-                        message.setQos(qos);
-                        client.publish(topic, message);
-                    } catch (MqttException me) {
-                        me.printStackTrace();
-                        mqttConfig.disConnect();
-                    }
+                    client = mqttConfig.getMqttClient();
+                    message.setQos(qos);
+                    client.publish(topic, message);
+                } catch (MqttException e) {
+                    e.printStackTrace();
+                    mqttConfig.disConnect();
                 }
             }
         });
     }
 
     public void stop(View v) {
-        taskSet.put(v.getId(), Boolean.FALSE);
+        MqttMessage message = new MqttMessage("{\"action\": \"stop\"}".getBytes());
+        MqttClient client = mqttConfig.getMqttClient();
+        message.setQos(qos);
+        try {
+            client.publish(topic, message);
+        } catch (MqttException e) {
+            e.printStackTrace();
+            mqttConfig.disConnect();
+        }
     }
 }

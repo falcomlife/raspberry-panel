@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/layout_control"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="landscape"
+    tools:context="com.sora.hamster.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/text_direct"
+        android:layout_width="9dp"
+        android:layout_height="7dp"
+        android:layout_marginBottom="90dp"
+        android:layout_marginLeft="90dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/forward"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintBottom_toTopOf="@+id/text_direct"
+        app:layout_constraintLeft_toLeftOf="@+id/text_direct"
+        app:layout_constraintRight_toRightOf="@+id/text_direct"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/backward"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintTop_toBottomOf="@+id/text_direct"
+        app:layout_constraintLeft_toLeftOf="@+id/text_direct"
+        app:layout_constraintRight_toRightOf="@+id/text_direct"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/rightward"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintLeft_toRightOf="@+id/text_direct"
+        app:layout_constraintBottom_toBottomOf="@+id/text_direct"
+        app:layout_constraintTop_toTopOf="@+id/text_direct"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/leftward"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="15dp"
+        android:background="@drawable/button_circle_shape"
+        app:layout_constraintRight_toLeftOf="@+id/text_direct"
+        app:layout_constraintBottom_toBottomOf="@+id/text_direct"
+        app:layout_constraintTop_toTopOf="@+id/text_direct"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:background="@mipmap/settings"
+        android:id="@+id/setting"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:background="@mipmap/clockwise"
+        android:id="@+id/clockwise"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:background="@mipmap/anticlockwise"
+        android:id="@+id/anticlockwise"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toLeftOf="@id/clockwise"
+        app:layout_constraintBottom_toBottomOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

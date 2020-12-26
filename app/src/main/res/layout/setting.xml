@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="landscape"
+    android:visibility="gone"
+    tools:context="com.sora.hamster.MainActivity">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textemqxip"
+        android:text="EMQX IP:"
+        android:gravity="left|center_vertical"
+        android:layout_width="200px"
+        android:layout_height="100px"
+        android:layout_marginTop="200px"
+        android:layout_marginLeft="100px"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emqxip"
+        android:layout_width="600px"
+        android:layout_height="160px"
+        android:layout_marginLeft="40px"
+        app:layout_constraintLeft_toRightOf="@+id/textemqxip"
+        app:layout_constraintBottom_toBottomOf="@+id/textemqxip"
+        />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textemqxport"
+        android:text="EMQX PORT:"
+        android:gravity="left|center_vertical"
+        android:layout_width="300px"
+        android:layout_height="100px"
+        android:layout_marginTop="380px"
+        android:layout_marginLeft="100px"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/emqxport"
+        android:layout_width="500px"
+        android:layout_height="160px"
+        android:layout_marginLeft="40px"
+        app:layout_constraintLeft_toRightOf="@+id/textemqxport"
+        app:layout_constraintBottom_toBottomOf="@+id/textemqxport"
+        />
+
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:background="@mipmap/close"
+        android:id="@+id/close"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_margin="10dp"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
